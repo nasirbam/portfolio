@@ -29,7 +29,14 @@
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
+            
+            /* নতুন দৃষ্টিনন্দন ও ঝাপসা আলপনা যোগ করা হয়েছে */
+            background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23764ba2' stroke-width='1.5'%3E%3Ccircle cx='250' cy='250' r='150' opacity='0.1'/%3E%3Cpath d='M250 50 A 200 200 0 0 1 450 250' opacity='0.15'/%3E%3Cpath d='M250 50 A 200 200 0 0 0 50 250' opacity='0.15'/%3E%3Cpath d='M50 250 A 200 200 0 0 0 250 450' opacity='0.15'/%3E%3Cpath d='M450 250 A 200 200 0 0 1 250 450' opacity='0.15'/%3E%3Ccircle cx='250' cy='250' r='100' opacity='0.2'/%3E%3C/g%3E%3C/svg%3E");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 90% auto; /* আলপনার আকার নির্ধারণ করা হয়েছে */
+
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
@@ -87,12 +94,11 @@
             font-size: 1.3rem;
             color: #667eea;
             font-weight: 500;
-            margin-bottom: 35px; /* আলপনার জন্য জায়গা তৈরি করতে মার্জিন বাড়ানো হয়েছে */
+            margin-bottom: 35px;
             position: relative;
             z-index: 1;
         }
 
-        /* নতুন আলপনা বা ডিভাইডার যোগ করা হয়েছে */
         .title::after {
             content: '';
             position: absolute;
@@ -144,8 +150,6 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #667eea;
             position: relative;
-            
-            /* অ্যানিমেশনের জন্য নতুন কোড */
             background: linear-gradient(90deg, #667eea, #764ba2, #8E44AD, #667eea);
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -154,17 +158,10 @@
             animation: animate-text-color 10s ease-in-out infinite;
         }
         
-        /* হেডিং অ্যানিমেশনের জন্য Keyframes */
         @keyframes animate-text-color {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .section-title::after {
@@ -305,26 +302,11 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header {
-                padding: 20px;
-            }
-            
-            .name {
-                font-size: 2rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .section {
-                padding: 20px;
-            }
+            .container { padding: 10px; }
+            .header { padding: 20px; }
+            .name { font-size: 2rem; }
+            .contact-info { flex-direction: column; gap: 10px; }
+            .section { padding: 20px; }
         }
     </style>
 </head>
@@ -470,16 +452,12 @@
     </div>
 
     <script>
-        // Add smooth scrolling and interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            // Add fade-in animation to sections
             const sections = document.querySelectorAll('.section');
-            
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -488,15 +466,12 @@
                     }
                 });
             }, observerOptions);
-
             sections.forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
                 section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(section);
             });
-
-            // Add click effects to skill tags
             const skillTags = document.querySelectorAll('.skill-tag');
             skillTags.forEach(tag => {
                 tag.addEventListener('click', function() {

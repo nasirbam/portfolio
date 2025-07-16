@@ -15,8 +15,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #667eea; /* Fallback color */
-            /* নার্সিং প্যাটার্ন এবং গ্রেডিয়েন্ট একসাথে যুক্ত করা হয়েছে */
+            background-color: #667eea;
             background-image: 
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='rgba(255,255,255,0.05)'%3E%3Cpath d='M60 0 L60 10 L70 10 L70 0 Z M50 10 L60 10 L60 20 L50 20 Z M60 50 L60 60 L50 60 L50 50 Z M70 60 L60 60 L60 70 L70 70 Z M10 60 L20 60 L20 50 L10 50 Z M0 60 L10 60 L10 70 L0 70 Z M90 20 C80 20 80 30 70 30 C60 30 60 20 50 20 C40 20 40 30 30 30 C20 30 20 20 10 20'/%3E%3Cpath d='M118 25 C118 20 114 20 110 20 C106 20 102 20 102 25 C102 30 106 30 110 30 C114 30 118 30 118 25 M110 15 A5 5 0 0 0 105 20 L105 30 A5 5 0 0 0 110 35 L110 35 A5 5 0 0 0 115 30 L115 20 A5 5 0 0 0 110 15 Z'/%3E%3Cpath d='M95 95 L100 100 L90 110 L85 105 Z M85 95 L90 100 L80 110 L75 105 Z M10 90 L15 85 L25 95 L20 100 Z M30 90 L35 85 L45 95 L40 100 Z'/%3E%3C/g%3E%3C/svg%3E"),
                 linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -66,16 +65,14 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 1;
-            overflow: hidden; /* ছবিকে গোলাকার আকৃতির মধ্যে সীমাবদ্ধ রাখে */
+            overflow: hidden; 
         }
         
-        /* ছবিকে সঠিকভাবে দেখানোর জন্য নতুন CSS */
         .profile-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ছবির অনুপাত ঠিক রেখে কন্টেইনার পূরণ করে */
+            object-fit: cover;
         }
-
 
         .name {
             font-size: 2.5rem;
@@ -301,7 +298,6 @@
 <body>
     <div class="container">
         <header class="header">
-            <!-- এখানে আপনার ছবিটি যুক্ত করা হয়েছে -->
             <div class="profile-img">
                 <img src="https://ik.imagekit.io/nasirbam/Nasir.png?updatedAt=1751365184813" alt="Md. Nasir Uddin - Profile Picture">
             </div>
@@ -318,7 +314,7 @@
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
-                    <span>Mymensingh, Bangladesh</span>
+                    <span>Dhaka, Bangladesh</span>
                 </div>
             </div>
         </header>
@@ -430,9 +426,9 @@
                 Interested in collaboration, professional networking, or healthcare initiatives? I'd love to hear from you.
             </p>
             <div class="social-links">
-                <a href="#" class="social-link">📧 Email</a>
-                <a href="#" class="social-link">💼 LinkedIn</a>
-                <a href="#" class="social-link">📱 WhatsApp</a>
+                <a href="mailto:mdnasirnaznin@gmail.com" class="social-link">📧 Email</a>
+                <a href="https://www.linkedin.com/in/md-nasir-uddin-734437217/" class="social-link" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a href="https://wa.me/8801751458288" class="social-link" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
             </div>
             <p style="margin-top: 20px; color: #888; font-size: 0.9rem;">
                 © 2025 Md. Nasir Uddin - Registered Nurse Portfolio

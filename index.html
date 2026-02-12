@@ -26,27 +26,57 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+        
+        html, body { 
+            width: 100%; 
+            overflow-x: hidden; 
+            color: var(--text); 
+            background: var(--white); 
+            line-height: 1.6; 
+        }
+
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
 
         /* --- UTILITIES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
+        
         .btn { display: inline-block; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         .btn-primary { background: var(--primary); color: var(--white); border: 2px solid var(--primary); box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3); }
         .btn-primary:hover { background: transparent; color: var(--primary); transform: translateY(-3px); }
         .btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 10px; }
         .btn-outline:hover { background: var(--primary); color: var(--white); transform: translateY(-3px); }
+        
         .section-padding { padding: 80px 0; }
+        
+        /* FIX: Center Alignment Logic */
         .text-center { text-align: center; }
         
-        .section-title { margin-bottom: 50px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+        .section-title { 
+            margin: 0 auto 50px auto; /* Centered using margin auto */
+            position: relative; 
+            display: inline-block; 
+        }
+        
         .section-title h2 { font-size: 2.5rem; color: var(--dark); font-weight: 700; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+        
+        /* Underline centered */
+        .section-title::after { 
+            content: ''; 
+            width: 60px; 
+            height: 4px; 
+            background: var(--accent); 
+            position: absolute; 
+            bottom: -10px; 
+            left: 0; 
+            right: 0; 
+            margin: 0 auto; 
+            border-radius: 2px; 
+        }
 
         /* --- NAVBAR --- */
-        nav { background: var(--white); height: 80px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        nav { background: var(--white); height: 80px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05); width: 100%; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
         .logo span { color: var(--accent); }
@@ -60,30 +90,28 @@
         .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--dark); }
 
         /* --- HERO SECTION --- */
-        .hero { min-height: 90vh; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-        .hero-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-        .hero-text { flex: 1; z-index: 2; }
+        .hero { min-height: 90vh; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; width: 100%; }
+        .hero-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 50px; position: relative; z-index: 2; }
+        .hero-text { flex: 1; }
         .badge { background: #d1fae5; color: #059669; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 20px; }
         .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; color: var(--dark); }
         .hero-text h1 span { color: var(--primary); }
         .hero-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 30px; max-width: 550px; }
         
-        .hero-img { flex: 1; position: relative; display: flex; justify-content: center; z-index: 2; }
-        .img-box { width: 400px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0px rgba(2, 132, 199, 0.1); border: 5px solid var(--white); position: relative; }
+        .hero-img { flex: 1; position: relative; display: flex; justify-content: center; }
+        .img-box { width: 400px; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0px rgba(2, 132, 199, 0.1); border: 5px solid var(--white); position: relative; z-index: 2; }
         .img-box img { width: 100%; height: 100%; object-fit: cover; }
         
-        /* Floating Card Animation */
-        .float-card { position: absolute; bottom: 40px; left: -20px; background: var(--white); padding: 15px 25px; border-radius: 12px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 15px; animation: float 3s ease-in-out infinite; }
+        .float-card { position: absolute; bottom: 40px; left: -20px; background: var(--white); padding: 15px 25px; border-radius: 12px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 15px; z-index: 3; animation: float 3s ease-in-out infinite; }
         .float-icon { width: 40px; height: 40px; background: #fee2e2; color: #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
         @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
 
-        /* Background Shapes */
-        .shape { position: absolute; border-radius: 50%; opacity: 0.1; }
+        .shape { position: absolute; border-radius: 50%; opacity: 0.1; z-index: 1; }
         .shape-1 { width: 300px; height: 300px; background: var(--primary); top: -50px; right: -50px; }
         .shape-2 { width: 200px; height: 200px; background: var(--accent); bottom: 50px; left: -50px; }
 
         /* --- ABOUT SECTION --- */
-        .about-content { display: flex; gap: 50px; align-items: center; }
+        .about-content { display: flex; gap: 50px; align-items: flex-start; }
         .about-text { flex: 1; }
         .about-text p { margin-bottom: 20px; font-size: 1.05rem; }
         .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
@@ -91,8 +119,7 @@
         .info-item i { color: var(--accent); }
         .info-item strong { color: var(--dark); }
 
-        /* Skills Progress */
-        .skills-wrapper { flex: 1; background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-top: 4px solid var(--primary); }
+        .skills-wrapper { flex: 1; background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow); border-top: 4px solid var(--primary); width: 100%; }
         .skill-item { margin-bottom: 20px; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
         .progress-bar { width: 100%; height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden; }
@@ -102,7 +129,9 @@
         .bg-light { background: #f8fafc; }
         .timeline { max-width: 800px; margin: 0 auto; position: relative; }
         .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: var(--primary); opacity: 0.2; }
-        .timeline-item { margin-bottom: 40px; position: relative; width: 50%; padding: 0 40px; }
+        
+        /* FIX: Timeline widths to prevent shifting */
+        .timeline-item { margin-bottom: 40px; position: relative; width: 50%; padding: 0 40px; box-sizing: border-box; }
         .timeline-item:nth-child(odd) { left: 0; text-align: right; }
         .timeline-item:nth-child(even) { left: 50%; text-align: left; }
         
@@ -126,10 +155,10 @@
         /* --- CONTACT SECTION --- */
         .contact-container { display: flex; gap: 40px; flex-wrap: wrap; }
         .contact-info { flex: 1; min-width: 300px; }
-        .contact-card { display: flex; items-center; gap: 20px; margin-bottom: 30px; background: var(--white); padding: 20px; border-radius: 10px; box-shadow: var(--shadow); }
-        .c-icon { width: 50px; height: 50px; background: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .contact-card { display: flex; align-items: center; gap: 20px; margin-bottom: 30px; background: var(--white); padding: 20px; border-radius: 10px; box-shadow: var(--shadow); }
+        .c-icon { width: 50px; height: 50px; background: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
         
-        .contact-form { flex: 1.5; background: var(--white); padding: 40px; border-radius: 15px; box-shadow: var(--shadow); }
+        .contact-form { flex: 1.5; background: var(--white); padding: 40px; border-radius: 15px; box-shadow: var(--shadow); min-width: 300px; }
         .form-group { margin-bottom: 20px; }
         .form-control { width: 100%; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none; transition: 0.3s; }
         .form-control:focus { border-color: var(--primary); }
@@ -145,6 +174,8 @@
         @media (max-width: 992px) {
             .hero-text h1 { font-size: 2.5rem; }
             .about-content { flex-direction: column; }
+            
+            /* Timeline Mobile Fix */
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; text-align: left !important; }
             .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
@@ -158,12 +189,13 @@
             
             .hero-wrapper { flex-direction: column-reverse; text-align: center; }
             .hero-text p { margin: 0 auto 30px; }
-            .img-box { width: 100%; height: 350px; }
-            .float-card { left: 50%; transform: translateX(-50%); width: 80%; bottom: -20px; animation: none; }
+            .img-box { width: 100%; height: 350px; margin: 0 auto; }
+            .float-card { left: 50%; transform: translateX(-50%); width: 90%; bottom: -20px; animation: none; }
             
             .info-grid { grid-template-columns: 1fr; }
             .section-title h2 { font-size: 2rem; }
             .contact-container { flex-direction: column; }
+            .shape { display: none; } 
         }
     </style>
 </head>
@@ -196,7 +228,7 @@
         <div class="container hero-wrapper">
             <div class="hero-text">
                 <span class="badge">Government Registered Nurse</span>
-                <h1>Md. Nasir Uddin <br><span>RN, CRPNC, BSN</span></h1>
+                <h1>Md. Nasir Uddin <br> </h1> <h3><span>RN, BSN</span></h3>
                 <p>Dedicated Government Nurse in Bangladesh committed to compassionate, evidence-based care and patient safety. Serving humanity with professional excellence.</p>
                 <div class="hero-btns">
                     <a href="#contact" class="btn btn-primary">Contact Me</a>
@@ -205,13 +237,13 @@
             </div>
             <div class="hero-img">
                 <div class="img-box">
-                    <!-- Placeholder Image - Replace with real photo -->
-                    <img src="https://placehold.co/400x500/e0f2fe/0284c7?text=Nasir+Photo" alt="Md. Nasir Uddin">
+                    <!-- Placeholder Image -->
+                    <img src="https://ik.imagekit.io/nasirbam/Nasir.png?updatedAt=1751365184813" alt="Md. Nasir Uddin">
                 </div>
                 <div class="float-card">
                     <div class="float-icon"><i class="fas fa-heartbeat"></i></div>
                     <div>
-                        <h4>5+ Years</h4>
+                        <h4>9+ Years</h4>
                         <small>Clinical Experience</small>
                     </div>
                 </div>
@@ -236,8 +268,8 @@
                     <div class="info-grid">
                         <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Degree:</strong> BSN (Post Basic)</div></div>
                         <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Role:</strong> Senior Staff Nurse (Govt)</div></div>
-                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Location:</strong> Dhaka, Bangladesh</div></div>
-                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Email:</strong> nasir@example.com</div></div>
+                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Location:</strong> Mymensingh, Bangladesh</div></div>
+                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Email:</strong> mdnsirnaznin@gmail.com</div></div>
                     </div>
                 </div>
                 
@@ -282,7 +314,7 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2020 - 2022</span>
+                        <span class="timeline-date">2021 - 2023</span>
                         <h3>BSN (Post Basic)</h3>
                         <h4>University of Dhaka</h4>
                         <p>Completed Bachelor of Science in Nursing with focus on advanced clinical practice and research.</p>
@@ -293,9 +325,9 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2019 - Present</span>
-                        <h3>Senior Staff Nurse (Govt.)</h3>
-                        <h4>Dhaka Medical College Hospital</h4>
+                        <span class="timeline-date">2016 - Present</span>
+                        <h3>Senior Staff Nurse</h3>
+                        <h4>Govt. of Bangladesh</h4>
                         <p>Responsible for patient assessment, medication administration, and supervising junior staff in the Medicine Ward.</p>
                     </div>
                 </div>
@@ -304,8 +336,8 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <span class="timeline-date">2016 - 2019</span>
-                        <h3>Diploma in Nursing</h3>
+                        <span class="timeline-date">2013</span>
+                        <h3>Diploma in Nursing Science and Midwifery</h3>
                         <h4>Bangladesh Nursing & Midwifery Council</h4>
                         <p>Foundation training in nursing science, midwifery, and orthopedic nursing.</p>
                     </div>
@@ -316,9 +348,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <span class="timeline-date">2018 - 2019</span>
-                        <h3>ICU Nurse</h3>
-                        <h4>Private Hospital, Dhaka</h4>
-                        <p>Managed critical patients, operated ventilators, and maintained infection control protocols.</p>
+                        <h3>Student Nurse</h3>
+                        <h4>Centre for the Rehabilitation of the Paralysed (CRP), Mirpur, Dhaka</h4>
+                        <p>Managed critical patients, and maintained infection control protocols and rehabilitation care</p>
                     </div>
                 </div>
             </div>
@@ -373,21 +405,21 @@
                         <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
                         <div>
                             <h4>Phone</h4>
-                            <p>+880 1XXX XXXXXX</p>
+                            <p>+880 1751 458288</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="c-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
-                            <p>nasir.rn@example.com</p>
+                            <p>nasirnaznin@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h4>Location</h4>
-                            <p>Dhaka, Bangladesh</p>
+                            <p>Mymensingh, Bangladesh</p>
                         </div>
                     </div>
                 </div>
@@ -413,12 +445,12 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="wwww.facebook.com/nasir.naznin"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:nasir@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="mdnasirnaznin@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <p>&copy; 2024 Md. Nasir Uddin. All Rights Reserved.</p>
+            <p>&copy; 2026 Md. Nasir Uddin. All Rights Reserved.</p>
             <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 5px;">Government Registered Nurse (RN, CRPNC)</p>
         </div>
     </footer>

@@ -269,7 +269,7 @@
                         <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Degree:</strong> BSN (Post Basic)</div></div>
                         <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Role:</strong> Senior Staff Nurse (Govt)</div></div>
                         <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Location:</strong> Mymensingh, Bangladesh</div></div>
-                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Email:</strong> mdnsirnaznin@gmail.com</div></div>
+                        <div class="info-item"><i class="fas fa-check-circle"></i> <div><strong>Email:</strong> mdnasirnaznin@gmail.com</div></div>
                     </div>
                 </div>
                 
@@ -423,7 +423,7 @@
                         <div class="c-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
-                            <p>nasirnaznin@gmail.com</p>
+                            <p>mdnasirnaznin@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -435,16 +435,22 @@
                     </div>
                 </div>
 
-                <form class="contact-form">
+                <!-- Contact Form Connected to Email -->
+                <form action="https://formsubmit.co/mdnasirnaznin@gmail.com" method="POST" class="contact-form">
                     <h3 style="margin-bottom: 20px; color: var(--dark);">Send a Message</h3>
+                    
+                    <!-- Hidden settings for Email -->
+                    <input type="hidden" name="_subject" value="New Portfolio Message!">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email" required>
+                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -459,7 +465,7 @@
                 <a href="https://www.facebook.com/nasir.naznin"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="mdnasirnaznin@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:mdnasirnaznin@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2026 Md. Nasir Uddin. All Rights Reserved.</p>
             <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 5px;">Government Registered Nurse (RN, CRPNC)</p>
